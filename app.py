@@ -57,12 +57,8 @@ if uploaded_file is not None:
         lat = st.number_input("Latitude", value=float(X['latitude'].mean()))
         
         if st.button("Predict Crime Year"):
+            # Fixed this line by correcting the bracket placement
             predicted_year = model.predict([[long, lat]])[0]
             st.success(f"Predicted Occurrence Year: {predicted_year:.0f}")
     else:
         st.error("The dataset is missing required columns ('longitude', 'latitude', 'occurrence_year').")
-
-, lat]])[0]
-        st.success(f"Predicted Occurrence Year: {pred_year:.0f}")
-else:
-    st.error("Required columns not found in the dataset.")
